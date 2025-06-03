@@ -1,0 +1,8 @@
+fabric_profile:
+  target: dev
+  outputs:
+    dev:
+      type: fabric
+      server: fabric-dev-url
+      schema: dbo
+      threads: 1

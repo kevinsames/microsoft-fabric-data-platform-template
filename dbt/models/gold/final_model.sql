@@ -1,0 +1,1 @@
+SELECT customer_id, total_sales FROM {{ ref('silver_sales') }};
