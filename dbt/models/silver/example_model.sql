@@ -1,1 +1,0 @@
-SELECT * FROM {{ ref('bronze_table') }} WHERE quality_check = true;
