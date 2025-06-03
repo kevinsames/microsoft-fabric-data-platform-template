@@ -1,0 +1,8 @@
+pyspark
+mlflow
+dbt-core
+dbt-fabric
+synapseml
+fabric-cicd
+pytest
+mkdocs
