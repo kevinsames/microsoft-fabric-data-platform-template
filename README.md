@@ -1,54 +1,111 @@
-# Microsoft Fabric Data Platform Template (Hybrid Model)
+# 🚀 Microsoft Fabric Template Repository
 
-This repository provides a starter template for building a **modern Data Platform on Microsoft Fabric**, combining **Spark notebooks** and **dbt** for data transformations across the medallion architecture:
-
-- **Bronze Layer**: Raw data ingested via **Spark notebooks** into a Fabric Lakehouse
-- **Silver Layer**: Cleaned and enriched using **Spark notebooks**
-- **Gold Layer**: Curated business logic modeled via **dbt** and stored in a Fabric Warehouse
-
-## 🚀 Features
-
-- ✅ Hybrid medallion architecture: Spark (Bronze/Silver) + dbt (Gold)
-- ✅ CI/CD with GitHub Actions (Spark + dbt)
-- ✅ Environment separation (dev/test/prod)
-- ✅ arc42-based architecture documentation
-- ✅ Modular repo for ingestion, transformation, deployment, and documentation
-
-## 📂 Folder Structure
-
-```
-.github/workflows/         # CI/CD automation
-environments/              # Dev/Test/Prod configs
-infrastructure/            # IaC templates
-ingestion/notebooks/       # Spark notebooks (Bronze → Silver)
-dbt/                       # dbt project (Silver → Gold)
-docs/                      # arc42 docs
-notebooks/                 # Optional orchestration
-```
-
-## 🛠️ Tools Used
-
-| Layer    | Engine  | Tool            | Storage             |
-|----------|---------|------------------|----------------------|
-| Bronze   | Spark   | Fabric Notebook   | Fabric Lakehouse     |
-| Silver   | Spark   | Fabric Notebook   | Fabric Lakehouse     |
-| Gold     | SQL     | dbt Core          | Fabric Warehouse     |
-
-## ⚙️ CI/CD
-
-- GitHub Actions run dbt builds and tests on PR
-- Optional: validate Spark notebooks using pipeline triggers or notebook tests
-- Promote changes to higher envs (prod) on merge to `main`
-
-## 🧪 Getting Started
-
-1. Clone this repo
-2. Deploy Fabric resources using `/infrastructure`
-3. Load sample data via `ingestion/notebooks/01_load_raw_data.ipynb`
-4. Run the `02_transform_bronze_to_silver.ipynb` to generate Silver data
-5. Build and test dbt models from Silver to Gold
-6. Use GitHub Actions to automate deployment and tests
+This repository is a comprehensive template for building modern **Data Engineering**, **Machine Learning**, and **AI** projects using **Microsoft Fabric**. It applies best practices in software engineering, CI/CD, and architectural documentation (arc42), and is structured around the **medallion architecture** (Bronze → Silver → Gold).
 
 ---
 
-MIT License. Contributions welcome!
+## 📌 Features
+
+- 🪙 **Medallion Architecture**  
+  Bronze (raw data) → Silver (refined) → Gold (curated) using Fabric Lakehouses & Warehouses
+
+- 📘 **Spark Notebooks & dbt**  
+  Use Spark Notebooks for ingestion & transformation, dbt for analytics engineering in the gold layer
+
+- 🤖 **Machine Learning Ready**  
+  ML training pipelines, experiment tracking with MLflow, and batch inference
+
+- 🧠 **AI Service Integration**  
+  Prompt orchestration, SynapseML, Azure OpenAI integration
+
+- 📦 **CI/CD with GitHub Actions**  
+  Automate dbt runs, notebook orchestration, model training, and AI service deployment
+
+- 🧱 **Software Engineering Principles**  
+  Modular folder structure, environment configs (dev/test/prod), and code reuse
+
+- 📄 **arc42 Documentation**  
+  Documented architecture for Data Platform, ML systems, AI services, and decision logs
+
+---
+
+## 📁 Folder Structure (Summary)
+
+```
+/.github/                 # CI/CD workflows and templates  
+/config/                 # Environment-specific configs  
+/docs/                   # arc42-based documentation  
+/infrastructure/         # IaC (Bicep, Terraform), deployment scripts  
+/src/                    # Source code for ingestion, transformation, ML, and AI  
+/tests/                  # Unit and integration tests  
+/tools/                  # CLI utilities, fabric-cicd helpers  
+```
+
+---
+
+## 🛠️ Requirements
+
+- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/)
+- Python 3.10+
+- `dbt-core`, `dbt-fabric`
+- `mlflow`, `synapseml`
+- `fabric-cicd` (for deployment automation)
+- Azure CLI or GitHub Actions for CI/CD
+
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🧪 Example Workflows
+
+- `GitHub Actions`:  
+  - Run Spark notebooks  
+  - Deploy dbt models to Fabric Warehouse  
+  - Train & evaluate ML models  
+  - Deploy AI APIs or prompt flows
+
+- `Notebooks`:  
+  - Ingest to Bronze  
+  - Transform Bronze → Silver  
+  - Prepare Gold layer with dbt
+
+- `ML`:  
+  - Train models using Fabric notebooks  
+  - Log experiments in MLflow  
+  - Register models for batch inference
+
+---
+
+## 🧭 Documentation
+
+This repository includes templates and examples aligned to the [arc42](https://arc42.org/) architecture standard. See:
+- `docs/architecture-overview.md`
+- `docs/ml-system.md`
+- `docs/ai-services.md`
+- `docs/arc42-template.md`
+- `docs/decisions/` (ADR records)
+
+---
+
+## 🤝 Contributing
+
+Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) and our [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).  
+We welcome contributions that improve usability, structure, or add useful examples.
+
+---
+
+## 📢 License
+
+This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 💡 Inspiration & Credits
+
+- [Microsoft Fabric Docs](https://learn.microsoft.com/en-us/fabric/)
+- [dbt-fabric Adapter](https://github.com/dbt-msft/dbt-fabric)
+- [fabric-cicd](https://github.com/microsoft/fabric-cicd)
+- [Fabric Accelerator](https://github.com/bennyaustin/fabric-accelerator)
