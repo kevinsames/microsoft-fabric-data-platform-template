@@ -3,7 +3,6 @@ name: Feature request
 about: Suggest an idea or improvement for this Azure Data Platform project
 title: '[Feature]: '
 labels: 'feature, needs-triage'
-assignees: ''
 
 body:
   - type: markdown
