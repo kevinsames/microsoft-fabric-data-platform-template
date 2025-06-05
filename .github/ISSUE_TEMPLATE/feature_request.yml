@@ -1,0 +1,67 @@
+---
+name: Feature request
+about: Suggest an idea or improvement for this Azure Data Platform project
+title: '[Feature]: '
+labels: 'feature, needs-triage'
+assignees: ''
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+
+  - type: input
+    id: phase
+    attributes:
+      label: Project Phase
+      description: |
+        Which phase does this request relate to?
+        (e.g., Data Integration, Data Cleaning & Preparation, Data Serving, Data Modeling, Reporting & BI, Infrastructure Setup, Testing & Deployment, Documentation & Handover)
+      placeholder: Data Serving
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Responsible Role
+      description: Who should primarily implement this feature?
+      options:
+        - Data Engineer
+        - Data Architect
+        - Data Analyst
+        - DevOps Engineer
+
+  - type: input
+    id: estimate
+    attributes:
+      label: Effort Estimate (Days)
+      description: How many person-days do you estimate for this feature?
+      placeholder: '2'
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Is your feature request related to a problem? Please describe.
+      description: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+      placeholder: Describe the problem...
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Describe the solution you'd like
+      description: A clear and concise description of what you want to happen.
+      placeholder: Describe the solution...
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives you've considered
+      description: A clear and concise description of any alternative solutions or features you've considered.
+      placeholder: List alternatives...
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the feature request here.
+      placeholder: Add context...
