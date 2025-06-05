@@ -1,6 +1,7 @@
 ---
 name: Feature request
 title: '[Feature]: '
+description: 'Suggest an idea or improvement for this Azure Data Platform project'
 labels: 'feature, needs-triage'
 
 body:
