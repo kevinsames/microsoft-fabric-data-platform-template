@@ -40,7 +40,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "HumanResources_Department"
           }
@@ -68,14 +68,186 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "HumanResources_Employee"
           }
         },
         "enableStaging": false,
         "translator": {
-          "type": "TabularTranslator"
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "BusinessEntityID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "BusinessEntityID",
+                "physicalType": "integer"
+              }
+            },
+            {
+              "source": {
+                "name": "NationalIDNumber",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "15"
+              },
+              "destination": {
+                "name": "NationalIDNumber",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "LoginID",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "256"
+              },
+              "destination": {
+                "name": "LoginID",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "OrganizationLevel",
+                "type": "Int16",
+                "physicalType": "smallint"
+              },
+              "destination": {
+                "name": "OrganizationLevel",
+                "physicalType": "short"
+              }
+            },
+            {
+              "source": {
+                "name": "JobTitle",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "JobTitle",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "BirthDate",
+                "type": "DateTime",
+                "physicalType": "date"
+              },
+              "destination": {
+                "name": "BirthDate",
+                "physicalType": "timestamp"
+              }
+            },
+            {
+              "source": {
+                "name": "MaritalStatus",
+                "type": "String",
+                "physicalType": "nchar",
+                "length": "1"
+              },
+              "destination": {
+                "name": "MaritalStatus",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "Gender",
+                "type": "String",
+                "physicalType": "nchar",
+                "length": "1"
+              },
+              "destination": {
+                "name": "Gender",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "HireDate",
+                "type": "DateTime",
+                "physicalType": "date"
+              },
+              "destination": {
+                "name": "HireDate",
+                "physicalType": "timestamp"
+              }
+            },
+            {
+              "source": {
+                "name": "SalariedFlag",
+                "type": "Boolean",
+                "physicalType": "bit"
+              },
+              "destination": {
+                "name": "SalariedFlag",
+                "physicalType": "boolean"
+              }
+            },
+            {
+              "source": {
+                "name": "VacationHours",
+                "type": "Int16",
+                "physicalType": "smallint"
+              },
+              "destination": {
+                "name": "VacationHours",
+                "physicalType": "short"
+              }
+            },
+            {
+              "source": {
+                "name": "SickLeaveHours",
+                "type": "Int16",
+                "physicalType": "smallint"
+              },
+              "destination": {
+                "name": "SickLeaveHours",
+                "physicalType": "short"
+              }
+            },
+            {
+              "source": {
+                "name": "CurrentFlag",
+                "type": "Boolean",
+                "physicalType": "bit"
+              },
+              "destination": {
+                "name": "CurrentFlag",
+                "physicalType": "boolean"
+              }
+            },
+            {
+              "source": {
+                "name": "rowguid",
+                "type": "Guid",
+                "physicalType": "uniqueidentifier"
+              },
+              "destination": {
+                "name": "rowguid",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              },
+              "destination": {
+                "name": "ModifiedDate",
+                "physicalType": "timestamp"
+              }
+            }
+          ]
         },
         "typeConversionSettings": {
           "typeConversion": {
@@ -96,7 +268,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "HumanResources_EmployeeDepartmentHistory"
           }
@@ -124,7 +296,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "HumanResources_EmployeePayHistory"
           }
@@ -152,7 +324,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "HumanResources_JobCandidate"
           }
@@ -180,14 +352,74 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "HumanResources_Shift"
           }
         },
         "enableStaging": false,
         "translator": {
-          "type": "TabularTranslator"
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "ShiftID",
+                "type": "Byte",
+                "physicalType": "tinyint"
+              },
+              "destination": {
+                "name": "ShiftID",
+                "physicalType": "short"
+              }
+            },
+            {
+              "source": {
+                "name": "Name",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "Name",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "StartTime",
+                "type": "TimeSpan",
+                "physicalType": "time",
+                "scale": 7
+              },
+              "destination": {
+                "name": "StartTime",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "EndTime",
+                "type": "TimeSpan",
+                "physicalType": "time",
+                "scale": 7
+              },
+              "destination": {
+                "name": "EndTime",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              },
+              "destination": {
+                "name": "ModifiedDate",
+                "physicalType": "timestamp"
+              }
+            }
+          ]
         },
         "typeConversionSettings": {
           "typeConversion": {
@@ -208,14 +440,108 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_Address"
           }
         },
         "enableStaging": false,
         "translator": {
-          "type": "TabularTranslator"
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "AddressID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "AddressID",
+                "physicalType": "integer"
+              }
+            },
+            {
+              "source": {
+                "name": "AddressLine1",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "60"
+              },
+              "destination": {
+                "name": "AddressLine1",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "AddressLine2",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "60"
+              },
+              "destination": {
+                "name": "AddressLine2",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "City",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "30"
+              },
+              "destination": {
+                "name": "City",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "StateProvinceID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "StateProvinceID",
+                "physicalType": "integer"
+              }
+            },
+            {
+              "source": {
+                "name": "PostalCode",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "15"
+              },
+              "destination": {
+                "name": "PostalCode",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "rowguid",
+                "type": "Guid",
+                "physicalType": "uniqueidentifier"
+              },
+              "destination": {
+                "name": "rowguid",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              },
+              "destination": {
+                "name": "ModifiedDate",
+                "physicalType": "timestamp"
+              }
+            }
+          ]
         },
         "typeConversionSettings": {
           "typeConversion": {
@@ -236,7 +562,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_AddressType"
           }
@@ -264,7 +590,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_BusinessEntity"
           }
@@ -292,7 +618,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_BusinessEntityAddress"
           }
@@ -320,7 +646,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_BusinessEntityContact"
           }
@@ -348,7 +674,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_ContactType"
           }
@@ -376,7 +702,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_CountryRegion"
           }
@@ -404,7 +730,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_EmailAddress"
           }
@@ -432,7 +758,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_Password"
           }
@@ -460,7 +786,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_Person"
           }
@@ -488,7 +814,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_PersonPhone"
           }
@@ -516,7 +842,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_PhoneNumberType"
           }
@@ -544,7 +870,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Person_StateProvince"
           }
@@ -572,7 +898,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_BillOfMaterials"
           }
@@ -600,7 +926,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_Culture"
           }
@@ -628,14 +954,165 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_Document"
           }
         },
         "enableStaging": false,
         "translator": {
-          "type": "TabularTranslator"
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "DocumentLevel",
+                "type": "Int16",
+                "physicalType": "smallint"
+              },
+              "destination": {
+                "name": "DocumentLevel",
+                "physicalType": "short"
+              }
+            },
+            {
+              "source": {
+                "name": "Title",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "50"
+              },
+              "destination": {
+                "name": "Title",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "Owner",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "Owner",
+                "physicalType": "integer"
+              }
+            },
+            {
+              "source": {
+                "name": "FolderFlag",
+                "type": "Boolean",
+                "physicalType": "bit"
+              },
+              "destination": {
+                "name": "FolderFlag",
+                "physicalType": "boolean"
+              }
+            },
+            {
+              "source": {
+                "name": "FileName",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "400"
+              },
+              "destination": {
+                "name": "FileName",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "FileExtension",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "8"
+              },
+              "destination": {
+                "name": "FileExtension",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "Revision",
+                "type": "String",
+                "physicalType": "nchar",
+                "length": "5"
+              },
+              "destination": {
+                "name": "Revision",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "ChangeNumber",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "ChangeNumber",
+                "physicalType": "integer"
+              }
+            },
+            {
+              "source": {
+                "name": "Status",
+                "type": "Byte",
+                "physicalType": "tinyint"
+              },
+              "destination": {
+                "name": "Status",
+                "physicalType": "short"
+              }
+            },
+            {
+              "source": {
+                "name": "DocumentSummary",
+                "type": "String",
+                "physicalType": "nvarchar",
+                "length": "MAX"
+              },
+              "destination": {
+                "name": "DocumentSummary",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "Document",
+                "type": "Byte[]",
+                "physicalType": "varbinary",
+                "length": "MAX"
+              },
+              "destination": {
+                "name": "Document",
+                "physicalType": "binary"
+              }
+            },
+            {
+              "source": {
+                "name": "rowguid",
+                "type": "Guid",
+                "physicalType": "uniqueidentifier"
+              },
+              "destination": {
+                "name": "rowguid",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              },
+              "destination": {
+                "name": "ModifiedDate",
+                "physicalType": "timestamp"
+              }
+            }
+          ]
         },
         "typeConversionSettings": {
           "typeConversion": {
@@ -656,14 +1133,49 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_Illustration"
           }
         },
         "enableStaging": false,
         "translator": {
-          "type": "TabularTranslator"
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "IllustrationID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "IllustrationID",
+                "physicalType": "integer"
+              }
+            },
+            {
+              "source": {
+                "name": "Diagram",
+                "type": "String",
+                "physicalType": "xml"
+              },
+              "destination": {
+                "name": "Diagram",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              },
+              "destination": {
+                "name": "ModifiedDate",
+                "physicalType": "timestamp"
+              }
+            }
+          ]
         },
         "typeConversionSettings": {
           "typeConversion": {
@@ -684,7 +1196,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_Location"
           }
@@ -712,7 +1224,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_Product"
           }
@@ -740,7 +1252,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductCategory"
           }
@@ -768,7 +1280,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductCostHistory"
           }
@@ -796,7 +1308,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductDescription"
           }
@@ -824,14 +1336,38 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductDocument"
           }
         },
         "enableStaging": false,
         "translator": {
-          "type": "TabularTranslator"
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "ProductID",
+                "type": "Int32",
+                "physicalType": "int"
+              },
+              "destination": {
+                "name": "ProductID",
+                "physicalType": "integer"
+              }
+            },
+            {
+              "source": {
+                "name": "ModifiedDate",
+                "type": "DateTime",
+                "physicalType": "datetime"
+              },
+              "destination": {
+                "name": "ModifiedDate",
+                "physicalType": "timestamp"
+              }
+            }
+          ]
         },
         "typeConversionSettings": {
           "typeConversion": {
@@ -852,7 +1388,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductInventory"
           }
@@ -880,7 +1416,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductListPriceHistory"
           }
@@ -908,7 +1444,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductModel"
           }
@@ -936,7 +1472,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductModelIllustration"
           }
@@ -964,7 +1500,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductModelProductDescriptionCulture"
           }
@@ -992,7 +1528,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductPhoto"
           }
@@ -1020,7 +1556,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductProductPhoto"
           }
@@ -1048,7 +1584,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductReview"
           }
@@ -1076,7 +1612,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ProductSubcategory"
           }
@@ -1104,7 +1640,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_ScrapReason"
           }
@@ -1132,7 +1668,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_TransactionHistory"
           }
@@ -1160,7 +1696,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_TransactionHistoryArchive"
           }
@@ -1188,7 +1724,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_UnitMeasure"
           }
@@ -1216,7 +1752,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_WorkOrder"
           }
@@ -1244,7 +1780,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Production_WorkOrderRouting"
           }
@@ -1272,7 +1808,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Purchasing_ProductVendor"
           }
@@ -1300,7 +1836,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Purchasing_PurchaseOrderDetail"
           }
@@ -1328,7 +1864,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Purchasing_PurchaseOrderHeader"
           }
@@ -1356,7 +1892,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Purchasing_ShipMethod"
           }
@@ -1384,7 +1920,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Purchasing_Vendor"
           }
@@ -1412,7 +1948,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_CountryRegionCurrency"
           }
@@ -1440,7 +1976,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_CreditCard"
           }
@@ -1468,7 +2004,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_Currency"
           }
@@ -1496,7 +2032,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_CurrencyRate"
           }
@@ -1524,7 +2060,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_Customer"
           }
@@ -1552,7 +2088,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_PersonCreditCard"
           }
@@ -1580,7 +2116,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesOrderDetail"
           }
@@ -1608,7 +2144,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesOrderHeader"
           }
@@ -1636,7 +2172,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesOrderHeaderSalesReason"
           }
@@ -1664,7 +2200,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesPerson"
           }
@@ -1692,7 +2228,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesPersonQuotaHistory"
           }
@@ -1720,7 +2256,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesReason"
           }
@@ -1748,7 +2284,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesTaxRate"
           }
@@ -1776,7 +2312,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesTerritory"
           }
@@ -1804,7 +2340,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SalesTerritoryHistory"
           }
@@ -1832,7 +2368,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_ShoppingCartItem"
           }
@@ -1860,7 +2396,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SpecialOffer"
           }
@@ -1888,7 +2424,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_SpecialOfferProduct"
           }
@@ -1916,7 +2452,7 @@
         },
         "destination": {
           "partitionOption": "None",
-          "writeBehavior": "Overwrite",
+          "writeBehavior": "Append",
           "datasetSettings": {
             "table": "Sales_Store"
           }
