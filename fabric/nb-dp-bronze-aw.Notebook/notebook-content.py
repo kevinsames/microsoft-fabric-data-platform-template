@@ -20,6 +20,12 @@
 # META   }
 # META }
 
+# MARKDOWN ********************
+
+# ## 📌 Usage
+# 
+# Run this notebook as a one-time or scheduled job to prepare a unified dataset for downstream analytics and reporting.
+
 # CELL ********************
 
 from pyspark.sql import SparkSession
