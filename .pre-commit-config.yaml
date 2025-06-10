@@ -1,5 +1,5 @@
+exclude: fabric
 repos:
-  - exclude: fabric
   - repo: https://github.com/psf/black
     rev: 23.3.0
     hooks:
