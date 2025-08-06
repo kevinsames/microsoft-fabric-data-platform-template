@@ -1,66 +1,48 @@
----
-name: Feature request
-title: '[Feature]: '
-description: 'Suggest an idea or improvement for this Azure Data Platform project'
-labels: 'feature, needs-triage'
-
+name: 🚀 Feature Request
+description: Suggest a new feature or enhancement for the project.
+title: "[FEATURE] <brief description>"
+labels: ["enhancement", "needs triage"]
+assignees: []
 body:
-  - type: markdown
+  - type: checkboxes
     attributes:
-      value: |
-        ## Feature Request
-
-  - type: input
-    id: phase
-    attributes:
-      label: Project Phase
-      description: |
-        Which phase does this request relate to?
-        (e.g., Data Integration, Data Cleaning & Preparation, Data Serving, Data Modeling, Reporting & BI, Infrastructure Setup, Testing & Deployment, Documentation & Handover)
-      placeholder: Data Serving
-
-  - type: dropdown
-    id: role
-    attributes:
-      label: Responsible Role
-      description: Who should primarily implement this feature?
+      label: Is your feature request related to a problem?
+      description: Please search to see if a similar feature request already exists.
       options:
-        - Data Engineer
-        - Data Architect
-        - Data Analyst
-        - DevOps Engineer
-
-  - type: input
-    id: estimate
-    attributes:
-      label: Effort Estimate (Days)
-      description: How many person-days do you estimate for this feature?
-      placeholder: '2'
+        - label: I have searched the existing issues and feature requests
+          required: true
 
   - type: textarea
-    id: problem
     attributes:
-      label: Is your feature request related to a problem? Please describe.
-      description: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-      placeholder: Describe the problem...
+      label: Description
+      description: Please describe the feature or enhancement you would like to see.
+    validations:
+      required: true
 
   - type: textarea
-    id: solution
     attributes:
-      label: Describe the solution you'd like
-      description: A clear and concise description of what you want to happen.
-      placeholder: Describe the solution...
+      label: Use Case / Motivation
+      description: Explain your use case or the motivation behind this feature request.
+    validations:
+      required: true
 
   - type: textarea
-    id: alternatives
     attributes:
-      label: Describe alternatives you've considered
-      description: A clear and concise description of any alternative solutions or features you've considered.
-      placeholder: List alternatives...
+      label: Proposed Solution
+      description: If you have a suggestion for how to implement this, please describe it here.
+    validations:
+      required: false
 
   - type: textarea
-    id: context
     attributes:
-      label: Additional context
-      description: Add any other context or screenshots about the feature request here.
-      placeholder: Add context...
+      label: Alternatives Considered
+      description: Have you considered any alternative solutions or features?
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: Add any other context, screenshots, or references about the feature request here.
+    validations:
+      required: false

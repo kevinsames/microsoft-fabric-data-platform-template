@@ -1,0 +1,27 @@
+name: 'fiber_one'
+version: '1.0'
+config-version: 2
+
+profile: 'fiber_one'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+snapshot-paths: ["snapshots"]
+macro-paths: ["macros"]
+docs-paths: ["dbt-docs"]
+asset-paths: ["assets"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  fiber_one:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table

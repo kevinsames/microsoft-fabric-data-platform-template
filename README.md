@@ -1,111 +1,101 @@
-# 🚀 Microsoft Fabric Template Repository
+# Microsoft Fabric Data Platform Template
 
-This repository is a comprehensive template for building modern **Data Engineering**, **Machine Learning**, and **AI** projects using **Microsoft Fabric**. It applies best practices in software engineering, CI/CD, and architectural documentation (arc42), and is structured around the **medallion architecture** (Bronze → Silver → Gold).
-
----
-
-## 📌 Features
-
-- 🪙 **Medallion Architecture**  
-  Bronze (raw data) → Silver (refined) → Gold (curated) using Fabric Lakehouses & Warehouses
-
-- 📘 **Spark Notebooks & dbt**  
-  Use Spark Notebooks for ingestion & transformation, dbt for analytics engineering in the gold layer
-
-- 🤖 **Machine Learning Ready**  
-  ML training pipelines, experiment tracking with MLflow, and batch inference
-
-- 🧠 **AI Service Integration**  
-  Prompt orchestration, SynapseML, Azure OpenAI integration
-
-- 📦 **CI/CD with GitHub Actions**  
-  Automate dbt runs, notebook orchestration, model training, and AI service deployment
-
-- 🧱 **Software Engineering Principles**  
-  Modular folder structure, environment configs (dev/test/prod), and code reuse
-
-- 📄 **arc42 Documentation**  
-  Documented architecture for Data Platform, ML systems, AI services, and decision logs
+A production-ready template for analytics projects on [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/). This repository provides modular organization, CI/CD automation, and arc42-based documentation to accelerate data engineering, BI, and ML workflows.
 
 ---
 
-## 📁 Folder Structure (Summary)
+## 📁 Project Structure
 
 ```
-/.github/                 # CI/CD workflows and templates  
-/config/                 # Environment-specific configs  
-/docs/                   # arc42-based documentation  
-/infrastructure/         # IaC (Bicep, Terraform), deployment scripts  
-/src/                    # Source code for ingestion, transformation, ML, and AI  
-/tests/                  # Unit and integration tests  
-/tools/                  # CLI utilities, fabric-cicd helpers  
+.github/                 # CI/CD workflows, issue & PR templates
+docs/                    # Architecture docs (arc42), dbt docs
+fabric/                  # Lakehouse and notebook assets
+macros/                  # dbt macros
+models/                  # dbt models (staging, intermediate, marts)
+seeds/                   # dbt seed data
+snapshots/               # dbt snapshots
+tests/                   # Unit and integration tests
+requirements.txt         # Python dependencies
+dbt_project.yml          # dbt project config
+.pre-commit-config.yaml  # Pre-commit hooks config
+profiles.yml.example     # dbt profile example
 ```
 
 ---
 
-## 🛠️ Requirements
+## 🚀 Quickstart
 
-- [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/)
-- Python 3.10+
-- `dbt-core`, `dbt-fabric`
-- `mlflow`, `synapseml`
-- `fabric-cicd` (for deployment automation)
-- Azure CLI or GitHub Actions for CI/CD
+### Prerequisites
 
-Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+- Microsoft Fabric workspace
+- Python 3.8+
+- dbt-core, dbt-fabric
+- pre-commit, pytest
+
+### Setup
+
+1. **Clone the repository**
+    ```bash
+    git clone https://github.com/your-org/microsoft-fabric-data-platform-template.git
+    cd microsoft-fabric-data-platform-template
+    ```
+
+2. **Install dependencies**
+    ```bash
+    python -m venv .env
+    source .env/bin/activate
+    pip install -r requirements.txt
+    ```
+
+3. **Configure dbt profile**
+    - Copy `profiles.yml.example` to your dbt profile location and update credentials.
+
+4. **Run pre-commit checks**
+    ```bash
+    pre-commit install
+    pre-commit run --all-files
+    ```
+
+5. **Run tests**
+    ```bash
+    pytest
+    ```
 
 ---
 
-## 🧪 Example Workflows
+## 🧰 Usage
 
-- `GitHub Actions`:  
-  - Run Spark notebooks  
-  - Deploy dbt models to Fabric Warehouse  
-  - Train & evaluate ML models  
-  - Deploy AI APIs or prompt flows
-
-- `Notebooks`:  
-  - Ingest to Bronze  
-  - Transform Bronze → Silver  
-  - Prepare Gold layer with dbt
-
-- `ML`:  
-  - Train models using Fabric notebooks  
-  - Log experiments in MLflow  
-  - Register models for batch inference
+- **Notebooks**: Use notebooks in [`fabric/nb-dp-bronze-aw.Notebook/notebook-content.py`](fabric/nb-dp-bronze-aw.Notebook/notebook-content.py) for data ingestion and transformation.
+- **Lakehouse**: Lakehouse metadata and shortcuts in [`fabric/lh_dp.Lakehouse/`](fabric/lh_dp.Lakehouse/).
+- **dbt Models**: Organize models in `models/staging`, `models/intermediate`, and `models/marts`.
+- **CI/CD**: Automated checks via GitHub Actions ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
 ---
 
-## 🧭 Documentation
+## 📖 Documentation
 
-This repository includes templates and examples aligned to the [arc42](https://arc42.org/) architecture standard. See:
-- `docs/architecture-overview.md`
-- `docs/ml-system.md`
-- `docs/ai-services.md`
-- `docs/arc42-template.md`
-- `docs/decisions/` (ADR records)
+- Architecture docs: [`docs/arc42-docs/`](docs/arc42-docs/)
+- dbt docs: [`docs/dbt-docs/`](docs/dbt-docs/)
+- Contribution guidelines: [`CONTRIBUTING.md`](CONTRIBUTING.md)
+- Code of conduct: [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)
+- Security policy: [`SECURITY.md`](SECURITY.md)
 
 ---
 
 ## 🤝 Contributing
 
-Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) and our [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).  
-We welcome contributions that improve usability, structure, or add useful examples.
+We welcome contributions!  
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
 
 ---
 
-## 📢 License
+## 📄 License
 
-This project is licensed under the MIT License – see the [LICENSE](LICENSE) file for details.
+MIT License – see [LICENSE](LICENSE).
 
 ---
 
-## 💡 Inspiration & Credits
+## 🌟 References
 
-- [Microsoft Fabric Docs](https://learn.microsoft.com/en-us/fabric/)
+- [Microsoft Fabric Documentation](https://learn.microsoft.com/en-us/fabric/)
 - [dbt-fabric Adapter](https://github.com/dbt-msft/dbt-fabric)
-- [fabric-cicd](https://github.com/microsoft/fabric-cicd)
-- [Fabric Accelerator](https://github.com/bennyaustin/fabric-accelerator)
